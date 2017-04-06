@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit 'BidOwner.java' to 'Buyer.java'&#13;&#10;- Original element: 'BidOwner.java'&#13;&#10;- Renamed element: 'Buyer.java'" description="Rename compilation unit 'BidOwner.java'" flags="589830" id="org.eclipse.jdt.ui.rename.compilationunit" input="/&lt;{BidOwner.java" name="Buyer.java" stamp="1176293870578" version="1.0"/>
+</session>

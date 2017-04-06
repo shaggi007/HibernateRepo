@@ -1,0 +1,36 @@
+import util.HibernateUtil;
+import org.hibernate.*;
+import java.util.*;
+public class Test_One_to_Many {
+
+	/**
+	 * @param args
+	 */
+	public static void createItems() {
+		Item it = new Item("Think Pad","IBM Think Pad");
+		Item it2 = new Item("LapTop","Dell Inspiron");
+		Bid bid1 = new Bid(10000,it);
+		Bid bid2 = new Bid(1010,it);
+		Bid bid3 = new Bid(1110,it2);
+		Bid bid4 = new Bid(1110,it2);
+		Set<Bid> bids = new HashSet<Bid>();
+		bids.add(bid1);
+		bids.add(bid2);
+		Set<Bid> bids2 = new HashSet<Bid>();
+		bids2.add(bid3);
+		bids2.add(bid4);
+		it.setBids(bids);
+		it2.setBids(bids2);
+		Session session= HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+	
+		session.save(it);
+		session.save(it2);
+		tx.commit();
+	}
+		public static void createItems(int number, )
+		Item it = new Item("Think Pad","IBM Think Pad");
+
+	}
+
+}

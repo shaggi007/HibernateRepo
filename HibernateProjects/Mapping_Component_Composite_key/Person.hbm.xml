@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+<class name="Person">
+   <composite-id name="id" class="Name" >
+     <key-property name="firstName"/>
+     <key-property name="lastName"/>
+   </composite-id>
+   <property name="birthday"/>
+  
+</class>
+ </hibernate-mapping>

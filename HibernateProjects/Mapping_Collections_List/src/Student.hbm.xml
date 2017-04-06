@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+    <hibernate-mapping default-access="field" >
+       <class  name="Student" table="STUDENTS" >
+            <composite-id name="id" class="Name" >
+                 <key-property name="firstName" />
+                 <key-property name="lastName" />
+            </composite-id>
+        
+         <list name="friends" table="STUDENT_FRIENDS" fetch="join"  >
+            <key>
+               <column name="STUDENT_FIRST_NAME" />
+               <column name="STUDENT_LAST_NAME" />
+            </key>
+            <list-index column="Position" base="10" />
+            <!-- List contains elements of type Person -->
+            <composite-element class="Person" >
+               <nested-composite-element name="id" class="Name">
+                  <property name="firstName" column="FIRST_NAME" />
+                  <property name="lastName" column="LAST_NAME" />
+               </nested-composite-element>
+               <nested-composite-element name="addr" class="Address">
+                  <property name="city" />
+                  <property name="zip" />
+                  <property name="state" />
+                </nested-composite-element>
+            </composite-element>
+            <!-- Address below is a address of the student's Friend -->
+            
+         </list>
+         <!-- Address below is a address of the student -->
+         <component name="addr" class="Address">
+            <property name="city" />
+            <property name="zip" />
+            <property name="state" />
+         </component>
+         <list name="subjects" table="STUDENT_SUBJECTS">
+            <key>
+              <column name="STUDENT_FIRSTNAME" />
+              <column name="STUDENT_LASTNAME" />
+            </key>
+            <list-index column="Poistion" />
+            <element type="string" column="SUBJECT_NAME" />
+         </list>
+    </class>
+          
+       
+    </hibernate-mapping>

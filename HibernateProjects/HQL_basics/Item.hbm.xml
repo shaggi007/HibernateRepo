@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+			"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+<class name="Item" table="ITEMS" >
+  <id name="id" column="ITEM_ID">
+    <generator class="native" />
+  </id>
+    <version name="version" column="ITEM_OBJ_VERSION"/>
+    <property name="name" column="ITEM_NAME"/>
+    <property name="description" column="ITEM_DESCRIPTION"/>
+    <many-to-one name="successfulBid" class="Bid" column="SUCCESSFUL_BID_ID"  cascade="all" unique="true" />
+    <set name="bids"  cascade="save-update,delete-orphan" lazy="false">
+       <key column="ITEM_ID" />
+       <one-to-many class="Bid"  />
+    </set>
+ </class>
+ 
+  </hibernate-mapping>

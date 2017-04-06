@@ -1,0 +1,33 @@
+invented by GavinKing.
+Developer from EJB Team.
+
+
+Features of Hibernate
+1)Auto DDL(e.g.100's of tables are created automatically)
+2)HQL(e.g. contract of Oracle database is over now company want to switch to mysql)
+SQL - dependent queries
+HQL - database independent query
+3)cache support
+  facebook
+  to load first time requires x time.
+  second time onwards to load the same, requires x-y time
+  because it retrieves data from cache and cookies of local   system.
+
+  1 lakh employees daily swipes the card, which requires validation of usreid and password with the help of database.
+  during lunch break,teabreak they went outside, so once again communication with database is very expensive.
+  So we can use cache memory
+4)Primary key generator
+  e.g. user registration form for course enquiry,never ask id, because there may be chance of duplicate id.
+5)Validation(with the help of Hibernate Annotations)
+6)Exception free
+7)ORM support
+  possible to maintain relationship "is-a", "has-a" through objects not tables.
+  one-to-one
+  one-to-many
+8)OGM(Object Graph Mapping)  Hibernate 4 features
+  ORM for RDBMs
+  OGM for non RDBMS(e.g. MangoDB)
+
+9)Search(index based) Hibernate 4 features
+10)Annotations
+11)Inbuilt support for Connection pool 

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping default-access="field">
+       <class name="BillingDetails" table="BILLING_DETAILS" >
+          <id name="id" >
+            <generator class="native"/>
+          </id>
+          <discriminator column="BILLING_TYPE" />
+          <property name="owner" />
+
+          <subclass name="BankAccount" discriminator-value="BA" >
+             
+             <property name="account" />
+             <property name="bankname" />
+             <property name="swift" />
+          </subclass>
+          <subclass name="CreditCard" discriminator-value="CC">
+             
+             <property name="expMonth" />
+             <property name="expYear" />
+             <property name="card_number" />
+          </subclass>
+          <subclass name="Echequeue" discriminator-value="EC" >
+             
+             <property name="chequeue_number" />
+             <property name="routing_number" />
+            <property name="account_number" />
+          </subclass>
+     </class>        
+    </hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+			"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<!--
+[
+<!ENTITY % globals SYSTEM "classpath://auction/persistence/globals.dtd">
+%globals;
+]> -->
+
+<!--
+
+Mapping file for the Bid class 
+
+This class represents a single Bid It doesn't refer Item 
+but Item does refer the bids so Its a uni-directional one(Item)-to-many(Bids)
+
+
+
+-->
+<hibernate-mapping  default-access="field">
+
+<class name="Bid"  mutable="false">
+
+	<!-- Common id property. -->
+	<id name="id" type="long" column="BID_ID">
+		<generator class="native"/>
+	</id>
+
+	<property   name="amount"  update="false" >
+		<column name="BID_AMOUNT" not-null="true" length="2"/>
+		
+	</property>
+
+    <!-- Immutable property -->
+	<property   name="created"
+				column="CREATED"
+				type="timestamp"
+				update="false"
+				not-null="true"/>
+	<many-to-one name="item" 
+                     class="Item"
+                     column="ITEM_ID"
+                     not-null="true"
+                     update="false"
+    />
+	
+</class>
+
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+    <hibernate-mapping >
+       <class name="Customer" >
+          <id name="id">
+             <generator class="native"/>
+          </id>
+          <version name="version" column="OBJ_VERSION" access="field"/>
+
+	<property   name="firstname"
+				type="string"
+				column="FIRSTNAME"
+				length="255"
+				not-null="true"/>
+
+	<property   name="lastname"
+				type="string"
+				column="LASTNAME"
+				length="255"
+				not-null="true"/>
+
+	<!-- We don't change the username, so map it with update="false".
+		 This is an immutable property, it is also unique.
+		
+		 -->
+	<property   name="customerName"
+				type="string"
+				update="false" access="field">
+	    <column name="USERNAME"
+                length="255"
+                not-null="true" />
+            <!--    unique="true"/> -->
+	</property>
+
+	<!-- Password is a keyword in some databases, so we quote it. In practice, rename it. -->
+	<property   name="password"
+				type="string"
+				column="`PASSWORD`"
+				length="24"
+				not-null="true"/>
+
+	<property   name="email"
+				type="string"
+				column="EMAIL"
+				length="255"
+				not-null="true"/>
+
+	<property   name="ranking"
+				type="int"
+				column="RANK"
+				not-null="true"/>
+				
+	<component name="homeAddress" class="Address" access="field" >
+      <parent name="customer" /> <!-- This could be used if Address holds reference to Customer...a bidirectional relationship--> 
+				   <property name="street" column="HOME_STREET" not-null="true"/>
+				   <property name="zipcode" column="HOME_ZIPCODE" />
+				   <property name="city" column="HOME_CITY" />
+	</component>
+	<component name="billingAddress" class="Address"  >
+	<parent name="customer" /> 
+				   <property name="street" column="BILLING_STREET"/>
+				   <property name="zipcode" column="BILLING_ZIPCODE" />
+				   <property name="city" column="BILLING_CITY" />
+	</component>
+    </class>
+          
+       
+    </hibernate-mapping>

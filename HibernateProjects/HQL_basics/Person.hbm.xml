@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+    <hibernate-mapping default-access="field" >
+    
+       <class name="Person" mutable="false" table="PERSONS">
+          <id name="id" column="PERSON_ID">
+             <generator class="native"/>
+          </id>
+          
+          <property name="firstName"/>
+          <property name="lastName"/>  
+          <many-to-one name="homeAddress" class="Address" column="HOME_ID_ADDRESS"  cascade="all" unique="true"/>
+          <many-to-one name="shippingAddress" class="Address" column="SHIPPING_ID_ADDRESS"  cascade="all" unique="true"/>
+         
+       </class>
+       
+<!-- Every Person has some friends but storing them as a composite value Type will create a lot of ridundant data
+with a composite key(single id field will not work as primary key also firstName and last name of the person would repeat for as many times he has friends -->          
+
+ <class name="Address" >
+   <id name="id" column="ADDRESS_ID" >
+      <generator class="native">
+         <param name="property">user</param>
+      </generator>
+    </id>
+     <property name="city" />
+     <property name="zipcode" />
+     <property name="street" />
+     <one-to-one name="user" class="Person" property-ref="shippingAddress" cascade="all" />     
+     
+ </class>
+          
+      <query name="getAllPersons"> <![CDATA[ from Person ]]> </query> 
+    </hibernate-mapping>

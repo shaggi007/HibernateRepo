@@ -1,0 +1,26 @@
+import util.HibernateUtil;
+import org.hibernate.*;
+
+public class Test_Session_Level_Cache {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       PersistentClass object1 = new PersistentClass();
+       PersistentClass object2 = new PersistentClass();
+       PersistentClass object3 = new PersistentClass();
+       Session session = HibernateUtil.getSessionFactory().openSession();
+       
+       Transaction tx = session.beginTransaction();
+       session.save(object1);
+       session.save(object2);
+       session.save(object3);
+       tx.commit();
+       
+       
+       
+	}
+
+}

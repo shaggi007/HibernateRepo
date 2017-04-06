@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping default-access="field">
+  
+          <class name="BankAccount" table="BANK_ACCOUNT" >
+             <id name="id" column="BANK_ACCOUNT_ID">
+                <generator class="native"/>
+             </id>
+             <property name="account" />
+             <property name="bankname" />
+             <property name="swift" />
+             <property name="owner" />
+          
+          </class>
+          
+        <class name="CreditCard" >
+              <id name="id" column="CREDIT_CARD_ID">
+                <generator class="native"/>
+             </id>
+             <property name="expMonth" />
+             <property name="expYear" />
+             <property name="card_number" />
+            <property name="owner" />
+          </class>
+  <!--        <union-subclass name="Echequeue" >
+             
+             <property name="chequeue_number" />
+             <property name="routing_number" />
+             <property name="account_number" />
+          
+          </union-subclass> 
+     </class>      -->  
+    </hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+    <hibernate-mapping default-access="field" >
+       <class name="Person" mutable="false" >
+          <id name="id" column="PERSON_ID">
+             <generator class="native"/>
+          </id>
+<!-- Every Person has some friends but storing them as a composite value Type will create a lot of ridundant data
+with a composite key(single id field will not work as primary key also firstName and last name of the person would repeat for as many times he has friends -->          
+      <set name="friends" table="FRIENDS" >
+         <key column="SHREEKIRSHNA_ID" />
+         <composite-element class="Name" >
+            <!--<nested-composite-element name="homeAddr" class="Address" >
+              <property name="city" />
+              <property name="zipcode" />
+              <property name="street" />
+             </nested-composite-element>
+             -->
+            <property name="firstName" />
+            <property name="lastName" />
+         </composite-element>
+       </set>
+	<component name="name" class="Name" access="field" >
+<!--      <parent name="person" />  This could be used if Address holds reference to Customer...a bidirectional relationship--> 
+				   <property name="firstName" column="FIRST_NAME"/>
+				   <property name="lastName" column="LAST_NAME" />
+				   
+	</component>
+
+    </class>
+          
+       
+    </hibernate-mapping>

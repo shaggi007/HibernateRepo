@@ -1,0 +1,125 @@
+Configuration-------Hibernate container class
+
+Hibernate Objects:
+
+There are three types of objects
+1)transient
+2)persistent
+3)detached
+
+If you create a normal java object, it is transient.
+
+when you attach to Hibernate it is persistent.
+
+if you save that object in database it is database state/permanent state
+
+if you remove your object from Hibernate it is detached.
+
+when you call commit() on hibernate, it converts from persistent to database/permanent state.
+
+Following components are required to build simple Hibernate application:
+1)POJO class/Bean class
+2)Mapping file
+3)Configuration file
+4)Test class
+
+How to create/write pojo
+1)pojo class need to contains required no. of properties which are storing into table.
+e.g. in a student table which contains sid,sname,email and mark
+so 4 fields are required in pojo class.
+2)Default constructor is mandatory
+3)we must need to provide getter and setter for every property.
+4)setter and getter should be public 
+5)we can have extra var,methods,constructor..
+Example
+-------
+class Student
+{
+   sid
+   sname
+   email
+   mark
+
+   default constructor 
+   public getters and setters
+  
+}
+
+
+in mapping file
+-----------------
+either id or composite id is compulsory
+
+
+Configuration file
+------------------
+in configuration file hibernate.cfg.xml is default one.
+
+what are options available with hbm.2ddl.auto:
+create,update,validate,create-drop
+create:drop existing tables,create fresh tables
+update:use existing one, if does not exist in that case creates a new one.We can't drop tables using update option.
+
+case study:
+suppose we have table : student which has columns id,name,email with data present
+want to add one more column say mark
+you can add that column but without constraint not null.
+
+validate : check mapping schema against table schema
+e.g.
+mapping file contains 5 columns,in table 5 required columns plus addition 4 columns-no issue
+but in case of 5 columns in mapping file and only 4 columns in table,generates error(table doesn't contains required columns : SQLException).
+(validates existing table schema with mapping schema)
+
+So as rule:
+mapping columns == table columns
+mapping columns count <=table columns count
+create-drop:
+drop table if exist
+create new table
+drop existing table(whenever you call close method on sessionfactory,it will execute drop command)
+testing point of view you can use this option.
+
+
+
+Test class
+Configuration is a container class for Hibernate.
+Session is like your JDBC connection
+
+Student studentObj=new Student();
+s.setName("name");
+s.setMailId("mail");
+s.setMark(90);-----------------------transient state
+
+
+
+session.save(studentObj)-------persistent state
+
+session.beginTransaction().commit()-------permanent state/database state
+
+	
+Garbage collector is not called automatically called to remove the object, so following line is required
+session.evict(Object object)-------------detached
+Remove this instance from the session cache.
+
+
+
+
+To get following DTD:
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+open hibernate.core->org.hibernate package->open hibernate-mapping-3.0.dtd
+or open
+/org/hibernate/hibernate-mapping-4.0.xsd
+
+for configuration file
+/org/hibernate/hibernate-configuration-3.0.dtd
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+is it compulsory to use hbm.auto.ddl?
+
+<mapping resource="resources/student.hbm.xml"/>

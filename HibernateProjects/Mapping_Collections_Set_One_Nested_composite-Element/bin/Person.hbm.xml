@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+    <hibernate-mapping default-access="field" >
+       <class  name="Person" table="PERSONS" >
+          
+             <composite-id name="id" class="Name" >
+                 <key-property name="firstName" />
+                 <key-property name="lastName" />
+            </composite-id>
+        
+         <set name="friends" table="FRIENDS" >
+            <key>
+               <column name="PERSON_FIRST_NAME" />
+               <column name="PERSON_LAST_NAME" />
+            </key>
+            <composite-element class="Person" >
+               <nested-composite-element name="id" class="Name">
+                  <property name="firstName" column="FIRST_NAME" />
+                  <property name="lastName" column="LAST_NAME" />
+               </nested-composite-element>
+            </composite-element>
+         </set>
+         <component name="addr" class="Address">
+            <property name="city" />
+            <property name="zip" />
+            <property name="state" />
+         </component>
+    </class>
+          
+       
+    </hibernate-mapping>

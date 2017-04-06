@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project 'Mapping_Components' to 'Mapping_Components_unidirectional'&#13;&#10;- Original element: 'Mapping_Components'&#13;&#10;- Update references to refactored element" description="Rename Java project 'Mapping_Components'" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Mapping_Components" name="Mapping_Components_unidirectional" references="true" stamp="1175794277068" version="1.0"/>
+<refactoring comment="Rename Java project 'table_per_concrete_class' to 'Inheritance_table_per_concrete_class'&#13;&#10;- Original element: 'table_per_concrete_class'&#13;&#10;- Update references to refactored element" description="Rename Java project 'table_per_concrete_class'" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=table_per_concrete_class" name="Inheritance_table_per_concrete_class" references="true" stamp="1175956678876" version="1.0"/>
+</session>

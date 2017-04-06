@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+			"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"
+[
+<!ENTITY % globals SYSTEM "classpath://auction/persistence/globals.dtd">
+%globals;
+]>
+
+<!--
+
+Mapping file for the Bid class 
+
+This class represents a single Bid for a particular Item. 
+The relationship to the item is unidirectional and the fetch
+setting is "join", so loading a Bid will fetch the associated
+Item in the same select.
+
+The same is true for the association to the User who made the bid,
+we usually need both the item and the bidder together with the bid.
+
+Both the reference to Item and User are never updated, this is also
+true for all other properties of the Bid. A Bid is immutable.
+
+Keep in mind that using the "successful" column in a legacy schema
+situation (see book chapter 8) makes this class mutable!
+
+@author Christian Bauer
+-->
+<hibernate-mapping package="auction.model" default-access="field">
+
+<class name="Bid" table="BID" mutable="false">
+
+	<!-- Common id property. -->
+	<id name="id" type="long" column="BID_ID">
+		<generator class="&idgenerator;"/>
+	</id>
+
+	<!-- UserType for prices, length is precision of decimal field for DDL -->
+	<property   name="amount"
+				update="false"
+				type="monetary_amount_usd">
+		<column name="BID_AMOUNT" not-null="true" length="2"/>
+		<column name="BID_AMOUNT_CURRENCY" not-null="true" length="3"/>
+	</property>
+
+    <!-- Immutable property -->
+	<property   name="created"
+				column="CREATED"
+				type="timestamp"
+				update="false"
+				not-null="true"/>
+
+  
+
+        <!-- Read-only "inverse" side of the indexed one-to-many collection in Item -->
+        <many-to-one name="item"
+                     class="Item"
+                     column="ITEM_ID"
+                     not-null="true"
+                     insert="false"
+                     update="false"
+                     foreign-key="FK_ITEM_ID"/>
+    </properties>
+
+    
+	
+</class>
+
+</hibernate-mapping>

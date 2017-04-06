@@ -1,0 +1,244 @@
+import java.util.*;
+
+import org.hibernate.*;
+import org.hibernate.criterion.*;
+
+public class SimpleRetrieveTest {
+  
+  
+  public static void main(String[] args) {
+    HibernateUtil.setup("create table EVENTS ( uid int, name VARCHAR, start_Date date, duration int, location_id int);");
+    HibernateUtil.setup("create table speakers ( uid int, event_id int, firstName VARCHAR, lastName VARCHAR);");
+    
+    // hibernate code start
+    Session session = HibernateUtil.currentSession();
+    Transaction tx = session.beginTransaction();
+
+
+        Event event = new Event();
+        event.setName("One-to-many test");
+        event.setSpeakers(new HashSet());
+        event.getSpeakers().add(new Speaker("John", "Smith"));
+        event.getSpeakers().add(new Speaker("Dave", "Smith"));
+        event.getSpeakers().add(new Speaker("Joan", "Smith"));
+
+        session.saveOrUpdate(event);
+
+
+        tx.commit();
+    HibernateUtil.closeSession();
+
+    HibernateUtil.sessionFactory.close();
+
+        HibernateUtil.checkData("select * from speakers");
+        HibernateUtil.checkData("select uid, name from events");        
+    // hibernate code end
+  }
+  
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class name="Event" table="events">
+        <id name="id" column="uid" type="long" unsaved-value="null">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" length="100"/>
+        <property name="startDate" column="start_date"
+                  type="date"/>
+        <property name="duration" type="integer"/>
+        <many-to-one name="location" column="location_id" class="Location"/>
+        <set name="speakers" cascade="all">
+            <key column="event_id"/>
+            <one-to-many class="Speaker"/>
+        </set>
+        <set name="attendees" cascade="all">
+            <key column="event_id"/>
+            <one-to-many class="Attendee"/>
+        </set>
+    </class>
+</hibernate-mapping>
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+import java.util.Date;
+import java.util.Set;
+
+public class Event {
+
+  private Long id;
+  private String name;
+  private Date startDate;
+  private int duration;
+  private Set speakers;
+    private Set attendees;
+    private Location location;
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+  
+  public Long getId() {
+    return id;
+  }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+  public void setSpeakers(Set speakers) {
+    this.speakers = speakers;
+  }
+  
+  public Set getSpeakers() {
+    return speakers;
+  }
+
+    public Set getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(Set attendees) {
+        this.attendees = attendees;
+    }
+
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class name="Speaker" table="speakers">
+        <id name="id" column="uid" type="long">
+            <generator class="increment"/>
+        </id>
+        <property name="firstName" type="string" length="20"/>
+        <property name="lastName" type="string" length="20"/>
+    </class>
+</hibernate-mapping>
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+public class Speaker {
+
+    private Long id;
+    private String firstName;
+    private String lastName;
+
+    public Speaker() {
+    }
+
+    public Speaker(String firstName, String lastName) {
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="connection.url">jdbc:hsqldb:data/tutorial</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <mapping resource="Event.hbm.xml"/>
+        <mapping resource="Speaker.hbm.xml"/>
+        <mapping resource="Attendee.hbm.xml"/>
+        <mapping resource="Location.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration>           
+           
+       

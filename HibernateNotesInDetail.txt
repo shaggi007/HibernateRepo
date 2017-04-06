@@ -1,0 +1,66 @@
+Hibernate
+Team developer(Gavin king) from EJB(From sunmicrosystem) developed Hibernate in 2001.
+
+
+meaning - windows option - hibernate,logoff,shutdown
+
+hibernate General meaning - sleep mode
+
+Hibernate(ORM Tool)
+-Hibernate will help us in Model(MVC) part
+Model is divided into 3 parts:
+1)services(Security,Transaction,logger,JNDI,JMS,mailing)
+All these services may require for business.
+2)business
+3)DAO(Data Access Object)
+
+Application server
+Weblogic
+JBoss
+Glassfish
+
+get the services from application server.
+
+JDBC Drawback:
+database dependent queries.
+
+daily check in,check out,lunch break of 1 lakh employee in zensar.id scanning for 3 times. with this 3 times database communication. That means 3 lakh times database communication.
+
+To improve application performance,cache is there is hibernate.
+
+
+To load facebook first time it requires more time than subsequent request.
+cache data.
+
+
+Gavin king developed many features of EJB in Hibernate.
+EJB can't run without application server.
+Hibernate doesn't require application server.
+
+no dependency with Hibernate.
+no need to buy services from application server, just spring is sufficient to provide all services.
+
+
+Hibernate - DAO
+Spring - DAO, Business service,Controller
+
+
+Hibernate features:
+--------------------
+auto ddl----automatically create tables,relations
+HQL-----database independent query
+cache support
+primary key generator support-----registration form  id is generating automatically
+validation support---in the form of annotations.(JSR 303)
+exception free ------- we don't need to handle checked exception.
+ORM support(in between objects maintains relationship)----is a relationship and has a relationship.
+
+Hibernate 4.0 support - OGM Object Graph mapping--for non relational database(mangodb)
+
+ORM for database m/c
+OGM for non sql m/c
+
+Hibernate index based searching (Hibernate 4.0)
+
+-Connection pool(Inbuilt support)
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/OSGi%Minimum-1.2"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/asm.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/dom4j.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/hibernate3.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/hibernate-cglib-repack-2.1_3.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/javassist-3.4.GA.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/log4j.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/slf4j-api-1.5.2.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/H/slf4j-log4j12.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/hibernate-search-4.1.1.Final/dist/lib/provided/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/hibernate-search-4.1.1.Final/dist/lib/required/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/hibernate-annotations-3.4.0.GA/lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/hibernate-annotations-3.4.0.GA/lib/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="D:/Hibernate/jboss-logging.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

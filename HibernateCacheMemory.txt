@@ -1,0 +1,12 @@
+Hibernate cache supports 
+1)session level(first level)
+2)SessionFactory level(second level)
+3)Query cache
+
+Reduce no of database calls
+Improve Application performance
+
+Session level - one user
+SessionFactory level - all users
+Query cache - one instance
+

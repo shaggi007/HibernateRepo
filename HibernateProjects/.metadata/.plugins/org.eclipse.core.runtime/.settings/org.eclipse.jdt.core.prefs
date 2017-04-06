@@ -1,0 +1,17 @@
+#Thu Oct 13 08:54:48 IST 2011
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.compiler.compliance=1.5
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jre1.5.0/lib/rt.jar
+org.eclipse.jdt.core.userLibrary.NEHA_LIB=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="true" version\="1">\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/antlr-2.7.6.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/asm.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/c3p0-0.9.1.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/commons-collections-3.1.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/commons-logging-1.0.4.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/dom4j.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/dom4j-1.6.1.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/ehcache-1.2.3.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/hibernate3.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/hibernate-cglib-repack-2.1_3.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/javassist-3.4.GA.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/jta-1.1.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/log4j.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/ojdbc14.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/slf4j-api.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/slf4j-api-1.5.2.jar"/>\r\n\t<archive path\="E\:/HIBERNATE/hibernateLibs/slf4j-log4j12.jar"/>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.5
+org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/Eclipse
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/Eclipse/plugins/org.junit_3.8.1
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.JUNIT_SRC_HOME=C\:/Eclipse/plugins/org.eclipse.jdt.source_3.2.2.r322_v20070104-R4CR0Znkvtfjv9-/src/org.junit_3.8.1
+org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+org.eclipse.jdt.core.compiler.source=1.5
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+org.eclipse.jdt.core.compiler.problem.assertIdentifier=error

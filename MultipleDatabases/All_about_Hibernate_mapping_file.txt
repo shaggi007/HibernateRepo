@@ -1,0 +1,4 @@
+http://docs.jboss.org/hibernate/orm/3.3/reference/en/html/mapping.html
+
+
+http://www.mkyong.com/hibernate/hibernate-cascade-example-save-update-delete-and-delete-orphan/

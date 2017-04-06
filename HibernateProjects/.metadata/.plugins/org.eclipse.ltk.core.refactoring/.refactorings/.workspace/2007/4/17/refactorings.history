@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project 'Caching_Session_Context_Detached_Objects' to 'Objects_Session_Context_Detached_Objects'&#13;&#10;- Original element: 'Caching_Session_Context_Detached_Objects'&#13;&#10;- Update references to refactored element" description="Rename Java project 'Caching_Session_Context_Detached_Objects'" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Caching_Session_Context_Detached_Objects" name="Objects_Session_Context_Detached_Objects" references="true" stamp="1177648368833" version="1.0"/>
+</session>

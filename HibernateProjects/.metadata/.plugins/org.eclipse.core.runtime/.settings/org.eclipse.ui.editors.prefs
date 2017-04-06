@@ -1,0 +1,5 @@
+#Wed Apr 11 12:17:49 CDT 2007
+eclipse.preferences.version=1
+overviewRuler_migration=migrated_3.1
+org.eclipse.ui.DefaultTextEditor.internal.delegateSaveAs=true
+org.eclipse.jdt.ui.CompilationUnitEditor.internal.delegateSaveAs=true

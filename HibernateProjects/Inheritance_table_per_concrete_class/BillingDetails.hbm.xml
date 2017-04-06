@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping default-access="field">
+       <class name="BillingDetails" >
+          
+          <id name="id" column="BILLING_DETAILS_ID">
+            <generator class="native"/>
+          </id>
+          
+          <property name="owner" />
+
+          <union-subclass name="BankAccount" >
+             
+             <property name="account" />
+             <property name="bankname" />
+             <property name="swift" />
+          
+          </union-subclass>
+          
+        <union-subclass name="CreditCard" >
+             
+             <property name="expMonth" />
+             <property name="expYear" />
+             <property name="card_number" />
+          
+          </union-subclass>
+  <!--        <union-subclass name="Echequeue" >
+             
+             <property name="chequeue_number" />
+             <property name="routing_number" />
+             <property name="account_number" />
+          
+          </union-subclass> -->
+     </class>        
+    </hibernate-mapping>

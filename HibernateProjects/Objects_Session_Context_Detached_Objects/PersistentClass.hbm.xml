@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+			"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+<class name="PersistentClass" table="PERSISTENT_CLASS" select-before-update="true">
+  <id name="id" column="CLASS_ID">
+    <generator class="native" />
+  </id>
+<!--   <version name="version" column="ITEM_OBJ_VERSION"/> -->
+    <property name="something" />
+ </class>
+ 
+  </hibernate-mapping>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit 'Address.java' to 'Customer.java'&#13;&#10;- Original element: 'Address.java'&#13;&#10;- Renamed element: 'Customer.java'" description="Rename compilation unit 'Address.java'" flags="589830" id="org.eclipse.jdt.ui.rename.compilationunit" input="/&lt;{Address.java" name="Customer.java" stamp="1175775569498" version="1.0"/>
+<refactoring comment="Rename type 'Resident' to 'Address'&#13;&#10;- Original element: 'Resident'&#13;&#10;- Renamed element: 'Address'&#13;&#10;- Update references to refactored element&#13;&#10;- Update textual occurrences in comments and strings" description="Rename type 'Resident'" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/&lt;{Resident.java[Resident" matchStrategy="1" name="Address" qualified="false" references="true" similarDeclarations="false" stamp="1175775595195" textual="false" version="1.0"/>
+</session>
